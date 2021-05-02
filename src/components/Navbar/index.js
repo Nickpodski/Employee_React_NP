@@ -15,7 +15,7 @@ function Navbar(props) {
       <nav class="navbar navbar-dark bg-dark justify-content-between">
         <span class="navbar-brand">Employee Database</span>
         <form class="form-inline" onSubmit={submit} value={value}>
-          <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" onChange={handleChange}/>
+          <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search by name" aria-label="Search" onChange={handleChange}/>
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
         </form>
       </nav>
