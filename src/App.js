@@ -1,19 +1,12 @@
 import './App.css';
-import Navbar from './components/Navbar';
-import Wrapper  from './components/Wrapper';
-import Table  from './components/Table';
-
+import Wrapper from './components/Wrapper';
+import TableData from './components/TableData';
 
 function App() {
   return (
-    <Wrapper>
       <Wrapper>
-      <Navbar/>
-    </Wrapper>
-    <Wrapper>
-      <Table/>
-    </Wrapper>
-    </Wrapper>
+        <TableData />
+      </Wrapper>
   );
 }
 
