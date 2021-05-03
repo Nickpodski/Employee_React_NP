@@ -25,9 +25,6 @@ class TableData extends Component {
   searchEmployee = () => {
     API.getEmployee()
       .then(employees => {
-        // const data = employees.data.results;
-        // const newData = data.map(date => { return new Date(date.dob.date).getDate() + "-" + (new Date(date.dob.date).getMonth() + 1) +
-        // "-" + new Date(date.dob.date).getFullYear()});
         const rows = employees.data.results.map(employee => {
           return [<img src={employee.picture.medium} className="rounded-circle" alt={employee.name}></img>, `${employee.name.first} ${employee.name.last}`, employee.email, employee.phone, (new Date(employee.dob.date).getMonth() + 1) + "/" + (new Date(employee.dob.date).getDate() + "/" + (new Date(employee.dob.date).getFullYear()))]
         })
@@ -36,26 +33,7 @@ class TableData extends Component {
       .catch(err => console.log(err));
   };
 
-  // useEffect(() => {
-  //   API.getEmployee()
-  //     .then(employees => {
-  //       const data = employees.data.results.map(employee => {
-  //         return [employee.picture.thumbnail, `${employee.name.first} ${employee.name.last}`, employee.email, employee.phone, employee.dob]
-  //       })
-  //       setRows(data);
-  //       console.log(data)
-  //     })
-  //     .catch(err => console.log(err));
-  // })
-
-  // const handleInputChange = event => {
-  //   const value = event.target.value;
-  //   const name = event.target.name;
-  //   this.setState({
-  //     [name]: value
-  //   })
-  // };
-
+  
   handleFormSubmit = (event) => {
     event.preventDefault();
     const search = event.target.getAttribute("value");
