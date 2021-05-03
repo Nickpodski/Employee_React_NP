@@ -57,15 +57,12 @@ class TableData extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    // let currentRows = this.state.rows;
-    // let oldRows = this.state.backupRows;
     const search = event.target.getAttribute("value");
     if (search === "") {
       this.setState({ rows: this.state.backupRows });
       return;
     } 
     let sortRows = this.state.backupRows;
-    console.log(sortRows);
     sortRows = sortRows.filter(i => { return i[1].includes(search) });
     this.setState({ rows: sortRows });
     return;
