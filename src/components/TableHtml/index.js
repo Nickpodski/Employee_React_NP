@@ -6,7 +6,7 @@ function TableHtml(props) {
     <table className={`table ${format || "table-striped"}`}>
     <thead>
       <tr>
-        {headings.map(heading => <th scope="col">{heading}</th>)}
+        {headings.map(heading => <th scope="col" onClick={props.onClick}>{heading}</th>)}
       </tr>
     </thead>
     <tbody>   

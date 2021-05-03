@@ -14,7 +14,8 @@ class TableData extends Component {
     format: "",
     search: "",
     filteredUsers: [{}],
-    backupRows: [[]]
+    backupRows: [[]],
+    nameSort: 1
   };
 
   componentDidMount = () => {
@@ -68,6 +69,22 @@ class TableData extends Component {
     return;
   };
 
+  handleNameSort = (event) => {
+    event.preventDefault();
+    const headingName = event.target.innerHTML;
+    if (headingName === "Name") {
+      if (this.state.nameSort === 1) {
+        const currentRows = this.state.rows;
+        const sortedRows = currentRows.sort();
+        this.setState({rows: sortedRows, nameSort: 2});
+      } else {
+        const currentRows = this.state.rows;
+        const sortedRows = currentRows.reverse();
+        this.setState({rows: sortedRows, nameSort: 1});
+      }
+    }
+  }
+
   render() {
     return (
       <Wrapper>
@@ -79,6 +96,7 @@ class TableData extends Component {
           headings={this.state.headings}
           rows={this.state.rows}
           format={this.state.format}
+          onClick={this.handleNameSort}
         />
       </Wrapper>
 
